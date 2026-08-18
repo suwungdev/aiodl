@@ -1,3 +1,4 @@
+import './bootstrap.js';
 import express from 'express';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -64,4 +65,5 @@ app.use(express.static(publicDir, { maxAge: '1d', etag: true, extensions: ['html
 app.get('/{*splat}', (_req, res) => res.sendFile(path.join(publicDir, 'index.html')));
 
 export { app };
+export default app;
 
