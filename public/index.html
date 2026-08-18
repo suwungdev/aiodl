@@ -1,32 +1,92 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#07080d">
-  <meta name="description" content="AIODL — fast media downloader for supported social, video, music and image links.">
-  <title>AIODL — All In One Downloader</title>
+  <meta name="description" content="AIODL by suwung.id adalah downloader online gratis untuk download video TikTok, Instagram, YouTube, Facebook, X/Twitter, Pinterest, audio, foto, dan media dari berbagai platform.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="keywords" content="download video, downloader online, download TikTok, download Instagram, download YouTube, download Facebook, download Twitter, download X, download Pinterest, download CapCut, download video tanpa watermark, download foto Instagram, download audio, AIODL, suwung.id">
+  <link rel="canonical" href="https://aiodl.suwung.id/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIODL — suwung.id">
+  <meta property="og:title" content="AIODL — Downloader Online by suwung.id">
+  <meta property="og:description" content="Download video TikTok, Instagram, YouTube, Facebook, X, Pinterest, CapCut, audio, foto, dan media lainnya dengan AIODL.">
+  <meta property="og:description" content="Download video, foto, audio, dan media dari berbagai platform dengan AIODL by suwung.id.">
+  <meta property="og:url" content="https://aiodl.suwung.id/">
+  <meta property="og:image" content="https://aiodl.suwung.id/suwung-branding.png">
+  <meta property="og:image:alt" content="AIODL by suwung.id">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AIODL — Downloader Online by suwung.id">
+  <meta name="twitter:description" content="Downloader online ringan untuk video, foto, audio, dan media dari berbagai platform.">
+  <meta name="twitter:image" content="https://aiodl.suwung.id/suwung-branding.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/suwung-logo.png">
+  <title>AIODL — Download Video TikTok, Instagram, YouTube &amp; Media | suwung.id</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://aiodl.suwung.id/#website",
+        "url":"https://aiodl.suwung.id/",
+        "name":"AIODL",
+        "alternateName":"AIODL — suwung.id",
+        "description":"Downloader online gratis untuk download video TikTok, Instagram, YouTube, Facebook, X, Pinterest, CapCut, foto, audio, dan media dari berbagai platform.",
+        "publisher":{"@id":"https://aiodl.suwung.id/#organization"},
+        "inLanguage":"id-ID"
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://aiodl.suwung.id/#organization",
+        "name":"suwung.id",
+        "url":"https://suwung.id/",
+        "logo":{"@type":"ImageObject","url":"https://aiodl.suwung.id/suwung-logo.png"}
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://aiodl.suwung.id/#app",
+        "name":"AIODL",
+        "url":"https://aiodl.suwung.id/",
+        "applicationCategory":"MultimediaApplication",
+        "operatingSystem":"Web Browser",
+        "description":"Downloader online ringan untuk mengunduh video, foto, audio, dan media dari berbagai platform.",
+        "publisher":{"@id":"https://aiodl.suwung.id/#organization"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"IDR"}
+      }
+    ]
+  }
+  </script>
   <style>
     :root{--bg:#07080d;--panel:#0e1018;--panel2:#131622;--text:#f6f7fb;--muted:#8f96a8;--line:#252a38;--accent:#8b7cff;--accent2:#b7aaff;--danger:#ff6b7a;--ok:#51d99a;--radius:22px;}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#25203f 0,#0b0c13 34%,var(--bg) 65%);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}a{color:inherit;text-decoration:none}
-    .wrap{width:min(1100px,calc(100% - 32px));margin:auto}.nav{height:74px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.04em;font-size:20px}.logo{width:35px;height:35px;border-radius:11px;background:linear-gradient(135deg,#a89cff,#6558f6);display:grid;place-items:center;color:#080910;box-shadow:0 10px 35px #7669ff33;font-weight:950}.nav-badge{border:1px solid var(--line);background:#ffffff08;padding:7px 11px;border-radius:999px;color:#aeb4c5;font-size:12px}
-    .hero{text-align:center;padding:72px 0 42px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #ffffff12;background:#ffffff07;color:#bcb5ff;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700}.dot{width:6px;height:6px;border-radius:50%;background:#8b7cff;box-shadow:0 0 12px #8b7cff}.hero h1{font-size:clamp(42px,8vw,78px);line-height:.98;letter-spacing:-.07em;margin:22px 0 18px}.hero h1 span{background:linear-gradient(135deg,#fff 25%,#aaa0ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;margin:0 auto;color:var(--muted);font-size:16px}
+    .wrap{width:min(1100px,calc(100% - 32px));margin:auto}.nav{height:74px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.04em;font-size:20px}.brand-logo{width:38px;height:38px;border-radius:12px;object-fit:cover;box-shadow:0 8px 30px #7566ff35;border:1px solid #ffffff18}.brand-text{display:flex;align-items:baseline;gap:8px}.brand-text strong{font-size:20px}.brand-text small{font-size:11px;font-weight:700;letter-spacing:.02em;color:#8e87ff}.logo{width:35px;height:35px;border-radius:11px;background:linear-gradient(135deg,#a89cff,#6558f6);display:grid;place-items:center;color:#080910;box-shadow:0 10px 35px #7669ff33;font-weight:950}.nav-badge{border:1px solid var(--line);background:#ffffff08;padding:7px 11px;border-radius:999px;color:#aeb4c5;font-size:12px}
+    .hero{text-align:center;padding:72px 0 42px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #ffffff12;background:#ffffff07;color:#bcb5ff;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700}.dot{width:6px;height:6px;border-radius:50%;background:#8b7cff;box-shadow:0 0 12px #8b7cff}.hero h1{font-size:clamp(42px,8vw,78px);line-height:.98;letter-spacing:-.07em;margin:22px 0 18px}.hero h1 span{background:linear-gradient(135deg,#fff 25%,#aaa0ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;margin:0 auto;color:var(--muted);font-size:16px}.brand-line{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;color:#7f8799;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.brand-line span:last-child{color:#a79aff}.brand-line b{color:#454b5c;font-weight:500}
     .search-shell{margin:30px auto 0;max-width:800px;padding:8px;border:1px solid #ffffff18;background:#0d0f17cc;backdrop-filter:blur(20px);border-radius:20px;box-shadow:0 25px 70px #0007}.search{display:flex;gap:8px}.search input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#fff;padding:17px 16px;font-size:15px}.search input::placeholder{color:#687083}.paste{width:46px;border:0;background:#ffffff08;color:#aeb4c5;border-radius:14px;cursor:pointer}.paste:hover{background:#ffffff12;color:#fff}.go{border:0;background:linear-gradient(135deg,#a79aff,#6d5dff);color:#080910;font-weight:850;padding:0 22px;border-radius:14px;cursor:pointer;min-width:110px;box-shadow:0 10px 30px #7566ff38}.go:disabled{opacity:.55;cursor:not-allowed}.hint{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px;color:#6f7688;font-size:12px}.hint kbd{border:1px solid #292e3b;background:#11131b;padding:2px 6px;border-radius:5px;color:#a4aabc}
     .section{padding:26px 0 80px}.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:15px}.section-head h2{font-size:14px;margin:0;color:#dce0e9}.section-head span{font-size:12px;color:#666d7d}.chips{display:flex;gap:9px;flex-wrap:wrap}.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#0e1018;color:#aab0bf;padding:8px 11px;border-radius:999px;font-size:12px}.chip i{font-style:normal;width:18px;height:18px;display:grid;place-items:center;border-radius:6px;background:#ffffff0a;color:#ddd9ff;font-size:10px;font-weight:800}.foot{border-top:1px solid #151824;padding:22px 0 35px;color:#555c6c;font-size:12px;display:flex;justify-content:space-between;gap:20px}.foot strong{color:#858c9d}
     .result{margin:30px auto 0;max-width:800px;border:1px solid #ffffff14;background:#0d1018;border-radius:20px;overflow:hidden;display:none}.result.show{display:block}.result-top{display:flex;gap:16px;padding:18px}.thumb{width:100px;height:100px;border-radius:14px;object-fit:cover;background:#171a25;flex:none}.meta{min-width:0}.platform{color:#aaa1ff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.title{font-size:17px;font-weight:750;margin:5px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.author{color:#777f91;font-size:12px}.downloads{border-top:1px solid #1b1f2b;padding:12px}.dl{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 8px;border-radius:12px}.dl:hover{background:#ffffff05}.dl-type{color:#b8becc;font-size:13px}.dl a{background:#ffffff09;border:1px solid #252a37;padding:7px 11px;border-radius:9px;color:#e9ebf2;font-size:12px;font-weight:700}.dl a:hover{background:#ffffff12;border-color:#3a4051}.empty{color:#72798a;padding:18px;text-align:center}
-    @media(max-width:620px){.wrap{width:min(100% - 20px,1100px)}.nav{height:64px}.nav-badge{display:none}.hero{padding:55px 0 30px}.hero h1{font-size:49px}.hero p{font-size:14px}.search{flex-wrap:wrap}.search input{flex-basis:calc(100% - 60px)}.go{height:48px;flex:1}.paste{height:48px}.result-top{padding:14px}.thumb{width:76px;height:76px}.title{font-size:15px}.foot{display:block;text-align:center}.foot span{display:block;margin-top:7px}}
+    @media(max-width:800px){.seo-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.seo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 20px,1100px)}.nav{height:64px}.brand-logo{width:34px;height:34px}.brand-text strong{font-size:18px}.brand-text small{font-size:10px}.nav-badge{display:none}.hero{padding:55px 0 30px}.hero h1{font-size:49px}.hero p{font-size:14px}.search{flex-wrap:wrap}.search input{flex-basis:calc(100% - 60px)}.go{height:48px;flex:1}.paste{height:48px}.result-top{padding:14px}.thumb{width:76px;height:76px}.title{font-size:15px}.foot{display:block;text-align:center}.foot span{display:block;margin-top:7px}}
     .swal2-popup{background:#10131d!important;color:#f8f9fc!important;border:1px solid #ffffff12!important;border-radius:20px!important}.swal2-title{font-size:18px!important}.swal2-html-container{color:#8f96a8!important;font-size:13px!important}.swal2-confirm{background:linear-gradient(135deg,#a79aff,#6d5dff)!important;color:#080910!important;border-radius:11px!important;font-weight:800!important}.swal2-cancel{background:#ffffff0a!important;color:#ddd!important;border-radius:11px!important}.swal2-toast{background:#11141d!important;color:#fff!important;border:1px solid #ffffff12!important}.swal2-loader{border-color:#8b7cff transparent #8b7cff transparent!important}
-  </style>
+  .site-nav{display:flex;align-items:center;gap:18px;overflow:auto}.site-nav a{color:#8f96a8;font-size:13px;font-weight:650;text-decoration:none;white-space:nowrap}.site-nav a:hover{color:#fff}.page-main{padding:55px 0 90px}.content-page{max-width:850px;margin:auto}.content-page h1{font-size:clamp(32px,6vw,52px);letter-spacing:-.05em;color:#f4f5f8;margin:0 0 14px}.content-page h2{font-size:25px;color:#f0f1f5;margin:38px 0 10px}.content-page p,.content-page li{color:#9aa2b4;line-height:1.8;font-size:15px}.content-page .lead{font-size:17px;color:#b8bdca}.content-page a{color:#a89cff}.info-card{border:1px solid var(--line);background:#0e1018;border-radius:18px;padding:20px;margin:20px 0}.page-cta{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:12px;background:#8f7cff;color:#080910!important;font-weight:800;text-decoration:none}.legal-note{font-size:13px!important;color:#777f91!important}@media(max-width:760px){.site-nav{gap:12px;max-width:62vw}.site-nav a{font-size:12px}.page-main{padding-top:38px}}</style>
 </head>
 <body>
-  <header class="wrap nav"><a class="brand" href="/"><span class="logo">A</span>AIODL</a><span class="nav-badge">All In One Downloader</span></header>
+  <noscript><div style="padding:16px;text-align:center;background:#0e1018;color:#f6f7fb">AIODL by suwung.id — downloader online untuk video, foto, audio, dan media dari berbagai platform. Aktifkan JavaScript untuk menggunakan downloader.</div></noscript>
+  <header class="wrap nav">
+<a class="brand" href="/" aria-label="AIODL by suwung.id"><img class="brand-logo" src="/suwung-logo.png" alt="suwung.id logo"><span class="brand-text"><strong>AIODL</strong><small>by suwung.id</small></span></a>
+<nav class="site-nav" aria-label="Navigasi utama"><a href="/">Downloader</a><a href="/cara-download.html">Cara Download</a><a href="/faq.html">FAQ</a><a href="/tentang.html">Tentang</a><a href="/kebijakan-privasi.html">Privasi</a></nav>
+</header>
   <main class="wrap">
     <section class="hero">
-      <span class="eyebrow"><span class="dot"></span> Fast • Simple • No account</span>
-      <h1>Download it.<br><span>One link away.</span></h1>
-      <p>Paste a supported media link and AIODL will find the available downloads for you.</p>
+      <span class="eyebrow"><span class="dot"></span> SUWUNG.ID • Fast • Simple • No account</span>
+      <h1>Download video, foto &amp; audio.<br><span>One link away.</span></h1>
+      <p>AIODL adalah downloader online ringan dari suwung.id untuk mengunduh video, foto, audio, dan media dari berbagai platform dalam satu tempat.</p>
+      <div class="brand-line" aria-label="AIODL by suwung.id">
+        <span>AIODL</span><b>×</b><span>suwung.id</span>
+      </div>
       <form class="search-shell" id="form">
         <div class="search"><input id="url" type="url" autocomplete="off" placeholder="Paste your link here…" aria-label="Media URL" required><button class="paste" id="paste" type="button" title="Paste">↙</button><button class="go" id="go" type="submit">Analyze</button></div>
         <div class="hint"><span>Supports social, video, music & image links</span><span>•</span><kbd>Ctrl</kbd><kbd>V</kbd> to paste</div>
@@ -37,8 +97,13 @@
       <div class="section-head"><h2>Supported platforms</h2><span id="count">Loading…</span></div>
       <div class="chips" id="platforms"></div>
     </section>
-  </main>
-  <footer class="wrap foot"><strong>AIODL</strong><span>Use responsibly and respect the rights of content owners.</span></footer>
+    <section class="seo-content" aria-labelledby="seo-title">
+      <h2 id="seo-title">AIODL — Downloader Online by suwung.id</h2>
+      <p>AIODL adalah downloader online ringan untuk membantu memproses link video, foto, audio, dan media dari platform yang didukung.</p>
+      <div class="info-card"><strong>Pelajari AIODL</strong><p>Lihat <a href="/cara-download.html">cara download</a>, <a href="/faq.html">FAQ</a>, informasi <a href="/tentang.html">tentang AIODL</a>, dan <a href="/kebijakan-privasi.html">kebijakan privasi</a>.</p></div>
+    </section>
+
+<footer class="wrap foot"><strong>AIODL <span style="color:#8f83ff">× suwung.id</span></strong><span>Use responsibly and respect the rights of content owners.</span></footer>
 <script>
 const $=s=>document.querySelector(s);const form=$('#form'),input=$('#url'),go=$('#go'),result=$('#result');
 const toast=(icon,title,text='')=>Swal.fire({toast:true,position:'top-end',icon,title,text,showConfirmButton:false,timer:2600,timerProgressBar:true});
