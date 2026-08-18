@@ -1,9 +1,20 @@
 import { DOMParser } from 'linkedom';
-import { webcrypto } from 'node:crypto';
 
-// Browser APIs used by a few existing scrapers, provided safely for Node/Vercel.
-globalThis.DOMParser = globalThis.DOMParser || DOMParser;
-globalThis.crypto = globalThis.crypto || webcrypto;
-globalThis.window = globalThis.window || globalThis;
-globalThis.atob = globalThis.atob || ((s) => Buffer.from(s, 'base64').toString('binary'));
-globalThis.btoa = globalThis.btoa || ((s) => Buffer.from(s, 'binary').toString('base64'));
+// Browser APIs used by existing scrapers, provided safely for Node/Vercel.
+if (!globalThis.DOMParser) {
+  globalThis.DOMParser = DOMParser;
+}
+
+if (!globalThis.window) {
+  globalThis.window = globalThis;
+}
+
+if (!globalThis.atob) {
+  globalThis.atob = (s) =>
+    Buffer.from(s, 'base64').toString('binary');
+}
+
+if (!globalThis.btoa) {
+  globalThis.btoa = (s) =>
+    Buffer.from(s, 'binary').toString('base64');
+}
