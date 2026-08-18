@@ -2,7 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  >
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#080c16">
 
@@ -19,8 +22,10 @@
       --panel: rgba(17, 23, 37, .78);
       --panel2: rgba(13, 18, 30, .9);
       --line: rgba(130, 145, 180, .18);
+
       --text: #f5f7ff;
       --muted: #8d97ad;
+
       --blue: #4da3ff;
       --purple: #936cff;
       --green: #54d69a;
@@ -40,7 +45,9 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       color: var(--text);
+
       font-family:
         Inter,
         ui-sans-serif,
@@ -66,16 +73,23 @@
           rgba(147, 72, 255, .08),
           transparent 30%
         ),
-        linear-gradient(180deg, #090d17 0%, #060810 100%);
+        linear-gradient(
+          180deg,
+          #090d17 0%,
+          #060810 100%
+        );
 
       overflow-x: hidden;
     }
 
     body::before {
       content: "";
+
       position: fixed;
       inset: 0;
+
       pointer-events: none;
+
       opacity: .25;
 
       background-image:
@@ -91,11 +105,12 @@
 
       background-size: 42px 42px;
 
-      mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 80%
-      );
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 80%
+        );
     }
 
     button,
@@ -116,9 +131,10 @@
       display: none !important;
     }
 
-    /* =========================
+
+    /* =========================================================
        LOGIN
-    ========================= */
+    ========================================================= */
 
     #loginView {
       min-height: 100vh;
@@ -135,6 +151,7 @@
 
     .login-brand {
       text-align: center;
+
       margin-top: 5vh;
       margin-bottom: 46px;
     }
@@ -142,6 +159,7 @@
     .logo-wrap {
       width: 72px;
       height: 72px;
+
       margin: 0 auto 14px;
 
       position: relative;
@@ -158,7 +176,9 @@
           rgba(142, 72, 255, .16)
         );
 
-      border: 1px solid rgba(120, 130, 255, .32);
+      border:
+        1px solid
+        rgba(120, 130, 255, .32);
 
       box-shadow:
         0 0 35px rgba(87, 85, 255, .25),
@@ -168,25 +188,31 @@
     .logo-wrap img {
       width: 58px;
       height: 58px;
+
       object-fit: contain;
+
       border-radius: 17px;
     }
 
     .brand-name {
       font-size: 32px;
       font-weight: 850;
+
       letter-spacing: -.045em;
     }
 
     .brand-name span {
       display: block;
+
       margin-top: 7px;
 
       color: #99a8ff;
 
       font-size: 11px;
       font-weight: 800;
+
       letter-spacing: .28em;
+
       text-transform: uppercase;
     }
 
@@ -195,7 +221,10 @@
 
       padding: 42px;
 
-      border: 1px solid rgba(110, 150, 255, .42);
+      border:
+        1px solid
+        rgba(110, 150, 255, .42);
+
       border-radius: 27px;
 
       background:
@@ -235,7 +264,8 @@
         );
 
       box-shadow:
-        0 0 35px rgba(89, 111, 255, .45);
+        0 0 35px
+        rgba(89, 111, 255, .45);
 
       user-select: none;
     }
@@ -245,15 +275,19 @@
 
       text-align: center;
 
-      font-size: clamp(30px, 7vw, 42px);
+      font-size:
+        clamp(30px, 7vw, 42px);
+
       line-height: 1;
+
       letter-spacing: -.055em;
     }
 
     .login-description {
       max-width: 460px;
 
-      margin: 15px auto 32px;
+      margin:
+        15px auto 32px;
 
       text-align: center;
 
@@ -265,6 +299,7 @@
 
     .token-box {
       position: relative;
+
       display: flex;
       align-items: center;
 
@@ -272,10 +307,14 @@
 
       padding: 0 17px;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid
+        var(--line);
+
       border-radius: 17px;
 
-      background: rgba(8, 12, 21, .72);
+      background:
+        rgba(8, 12, 21, .72);
 
       transition:
         border-color .2s,
@@ -283,11 +322,14 @@
     }
 
     .token-box:focus-within {
-      border-color: rgba(84, 151, 255, .7);
+      border-color:
+        rgba(84, 151, 255, .7);
 
       box-shadow:
-        0 0 0 4px rgba(70, 130, 255, .08),
-        0 0 30px rgba(71, 119, 255, .08);
+        0 0 0 4px
+        rgba(70, 130, 255, .08),
+        0 0 30px
+        rgba(71, 119, 255, .08);
     }
 
     .token-icon {
@@ -301,7 +343,8 @@
 
       border-radius: 50%;
 
-      background: rgba(90, 115, 180, .12);
+      background:
+        rgba(90, 115, 180, .12);
 
       color: #9bb8ff;
 
@@ -320,6 +363,7 @@
       outline: 0;
 
       color: #f5f7ff;
+
       background: transparent;
 
       font-size: 15px;
@@ -341,11 +385,13 @@
       color: #8ea2d5;
 
       cursor: pointer;
+
       font-size: 18px;
     }
 
     .show-token:hover {
-      background: rgba(255,255,255,.05);
+      background:
+        rgba(255,255,255,.05);
     }
 
     .login-button {
@@ -368,7 +414,8 @@
         );
 
       box-shadow:
-        0 14px 35px rgba(74, 101, 255, .24);
+        0 14px 35px
+        rgba(74, 101, 255, .24);
 
       font-size: 16px;
       font-weight: 800;
@@ -385,7 +432,8 @@
       filter: brightness(1.08);
 
       box-shadow:
-        0 17px 40px rgba(74, 101, 255, .32);
+        0 17px 40px
+        rgba(74, 101, 255, .32);
     }
 
     .login-button:active {
@@ -399,13 +447,16 @@
 
     .login-button span {
       margin-left: 8px;
+
       font-size: 22px;
+
       vertical-align: -1px;
     }
 
     .security-line {
       display: flex;
       align-items: center;
+
       gap: 14px;
 
       margin-top: 35px;
@@ -413,15 +464,20 @@
       color: #8290aa;
 
       font-size: 13px;
+
       text-align: center;
     }
 
     .security-line::before,
     .security-line::after {
       content: "";
+
       height: 1px;
+
       flex: 1;
-      background: var(--line);
+
+      background:
+        var(--line);
     }
 
     .login-footer {
@@ -432,17 +488,20 @@
       color: #667087;
 
       font-size: 12px;
+
       line-height: 1.8;
     }
 
     .login-footer strong {
       color: #8997b3;
+
       font-weight: 700;
     }
 
-    /* =========================
+
+    /* =========================================================
        DASHBOARD
-    ========================= */
+    ========================================================= */
 
     #dashboardView {
       min-height: 100vh;
@@ -454,16 +513,24 @@
       top: 0;
       z-index: 10;
 
-      border-bottom: 1px solid var(--line);
+      border-bottom:
+        1px solid
+        var(--line);
 
-      background: rgba(7, 10, 18, .72);
+      background:
+        rgba(7, 10, 18, .72);
 
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
     .dash-header-inner {
-      width: min(1100px, calc(100% - 28px));
+      width:
+        min(
+          1100px,
+          calc(100% - 28px)
+        );
+
       min-height: 76px;
 
       margin: auto;
@@ -471,12 +538,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
     }
 
     .dash-brand {
       display: flex;
       align-items: center;
+
       gap: 11px;
 
       text-decoration: none;
@@ -488,11 +557,14 @@
 
       border-radius: 13px;
 
-      box-shadow: 0 0 22px rgba(91, 82, 255, .25);
+      box-shadow:
+        0 0 22px
+        rgba(91, 82, 255, .25);
     }
 
     .dash-brand strong {
       display: block;
+
       font-size: 17px;
     }
 
@@ -511,10 +583,14 @@
 
       padding: 0 14px;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid
+        var(--line);
+
       border-radius: 11px;
 
-      background: rgba(255,255,255,.025);
+      background:
+        rgba(255,255,255,.025);
 
       color: #aeb7c9;
 
@@ -522,16 +598,23 @@
     }
 
     .logout:hover {
-      background: rgba(255,255,255,.06);
+      background:
+        rgba(255,255,255,.06);
+
       color: #fff;
     }
 
     .dash-main {
-      width: min(1100px, calc(100% - 28px));
+      width:
+        min(
+          1100px,
+          calc(100% - 28px)
+        );
 
       margin: auto;
 
-      padding: 45px 0 80px;
+      padding:
+        45px 0 80px;
     }
 
     .dash-eyebrow {
@@ -541,29 +624,42 @@
       font-weight: 850;
 
       letter-spacing: .18em;
+
       text-transform: uppercase;
     }
 
     .dash-title {
-      margin: 8px 0 8px;
+      margin:
+        8px 0 8px;
 
-      font-size: clamp(31px, 6vw, 52px);
+      font-size:
+        clamp(31px, 6vw, 52px);
+
       line-height: 1;
 
       letter-spacing: -.055em;
     }
 
     .dash-sub {
-      margin: 0 0 30px;
+      margin:
+        0 0 30px;
 
       color: var(--muted);
 
       line-height: 1.6;
     }
 
+
+    /* =========================================================
+       STAT CARDS
+    ========================================================= */
+
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 12px;
 
       margin-bottom: 28px;
@@ -572,17 +668,23 @@
     .stat {
       padding: 18px;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid
+        var(--line);
+
       border-radius: 17px;
 
-      background: rgba(15, 20, 32, .68);
+      background:
+        rgba(15, 20, 32, .68);
     }
 
     .stat-label {
       color: #7e899e;
 
       font-size: 11px;
+
       text-transform: uppercase;
+
       letter-spacing: .08em;
     }
 
@@ -590,19 +692,223 @@
       margin-top: 7px;
 
       font-size: 27px;
+
       font-weight: 850;
     }
 
+
+    /* =========================================================
+       REQUEST ANALYTICS
+    ========================================================= */
+
+    .analytics {
+      margin-top: 32px;
+      margin-bottom: 30px;
+    }
+
+    .analytics-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 14px;
+    }
+
+    .analytics-title {
+      margin: 0;
+
+      font-size: 18px;
+
+      font-weight: 850;
+
+      letter-spacing: -.025em;
+    }
+
+    .analytics-subtitle {
+      margin:
+        4px 0 0;
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    .analytics-actions {
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+    }
+
+    .refresh-stats {
+      min-height: 38px;
+
+      padding: 0 13px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 10px;
+
+      color: #c7d0e3;
+
+      background:
+        rgba(255,255,255,.025);
+
+      cursor: pointer;
+    }
+
+    .refresh-stats:hover {
+      background:
+        rgba(255,255,255,.06);
+    }
+
+    .refresh-stats:disabled {
+      opacity: .55;
+
+      cursor: wait;
+    }
+
+    .request-platform-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 12px;
+    }
+
+    .request-platform-card {
+      padding: 17px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(16,22,36,.84),
+          rgba(11,15,25,.84)
+        );
+
+      box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.025);
+    }
+
+    .request-platform-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+    }
+
+    .request-platform-name {
+      font-weight: 800;
+    }
+
+    .request-platform-count {
+      font-size: 22px;
+
+      font-weight: 850;
+    }
+
+    .request-platform-meta {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 8px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    .request-platform-meta strong {
+      color: #dfe6f5;
+    }
+
+    .request-bar {
+      height: 6px;
+
+      margin-top: 13px;
+
+      overflow: hidden;
+
+      border-radius: 99px;
+
+      background:
+        rgba(255,255,255,.06);
+    }
+
+    .request-bar > span {
+      display: block;
+
+      height: 100%;
+
+      width: 0;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #348dff,
+          #885cff
+        );
+
+      transition:
+        width .35s ease;
+    }
+
+    .analytics-empty {
+      padding: 22px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 16px;
+
+      color: var(--muted);
+
+      background:
+        rgba(15, 20, 32, .68);
+
+      font-size: 13px;
+    }
+
+
+    /* =========================================================
+       PLATFORM GRID
+    ========================================================= */
+
     .platform-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
       gap: 13px;
     }
 
     .platform-card {
       padding: 19px;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid
+        var(--line);
+
       border-radius: 19px;
 
       background:
@@ -612,18 +918,24 @@
           rgba(11, 15, 25, .84)
         );
 
-      box-shadow: inset 0 1px rgba(255,255,255,.025);
+      box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.025);
     }
 
     .platform-top {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       gap: 15px;
     }
 
     .platform-name {
       font-weight: 800;
+
       font-size: 16px;
     }
 
@@ -637,13 +949,17 @@
 
     .status {
       display: inline-flex;
+
       align-items: center;
+
       gap: 6px;
 
       margin-top: 8px;
 
       font-size: 10px;
+
       font-weight: 850;
+
       letter-spacing: .06em;
     }
 
@@ -655,9 +971,12 @@
 
       border-radius: 50%;
 
-      background: currentColor;
+      background:
+        currentColor;
 
-      box-shadow: 0 0 10px currentColor;
+      box-shadow:
+        0 0 10px
+        currentColor;
     }
 
     .online {
@@ -674,6 +993,7 @@
 
     .controls {
       display: grid;
+
       gap: 10px;
 
       margin-top: 17px;
@@ -683,17 +1003,23 @@
       min-height: 43px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       padding: 0 12px;
 
-      border: 1px solid rgba(120,135,170,.11);
+      border:
+        1px solid
+        rgba(120,135,170,.11);
+
       border-radius: 11px;
 
       color: #aeb7c7;
 
-      background: rgba(255,255,255,.018);
+      background:
+        rgba(255,255,255,.018);
     }
 
     .switch {
@@ -712,7 +1038,8 @@
 
       cursor: pointer;
 
-      transition: background .18s;
+      transition:
+        background .18s;
     }
 
     .switch::after {
@@ -730,7 +1057,8 @@
 
       background: #fff;
 
-      transition: transform .18s;
+      transition:
+        transform .18s;
     }
 
     .switch:checked {
@@ -743,11 +1071,13 @@
     }
 
     .switch:checked::after {
-      transform: translateX(20px);
+      transform:
+        translateX(20px);
     }
 
     .message {
       width: 100%;
+
       min-height: 74px;
 
       padding: 12px;
@@ -756,25 +1086,32 @@
 
       outline: none;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid
+        var(--line);
+
       border-radius: 12px;
 
       color: #edf0f8;
 
-      background: rgba(6, 9, 16, .7);
+      background:
+        rgba(6, 9, 16, .7);
 
       font-size: 13px;
     }
 
     .message:focus {
-      border-color: rgba(91, 130, 255, .55);
+      border-color:
+        rgba(91, 130, 255, .55);
     }
 
     .save {
       width: 100%;
+
       min-height: 43px;
 
       border: 0;
+
       border-radius: 11px;
 
       color: #fff;
@@ -797,6 +1134,7 @@
 
     .save:disabled {
       opacity: .5;
+
       cursor: wait;
     }
 
@@ -806,20 +1144,24 @@
       color: #606b80;
 
       font-size: 11px;
+
       line-height: 1.6;
     }
 
-    /* =========================
+
+    /* =========================================================
        MOBILE
-    ========================= */
+    ========================================================= */
 
     @media (max-width: 700px) {
+
       #loginView {
         padding-top: 34px;
       }
 
       .login-brand {
         margin-top: 3vh;
+
         margin-bottom: 34px;
       }
 
@@ -838,7 +1180,9 @@
       }
 
       .login-card {
-        padding: 28px 18px 25px;
+        padding:
+          28px 18px 25px;
+
         border-radius: 23px;
       }
 
@@ -855,6 +1199,7 @@
 
       .login-description {
         font-size: 14px;
+
         margin-bottom: 25px;
       }
 
@@ -874,12 +1219,50 @@
         padding-top: 32px;
       }
 
+      .dash-header-inner {
+        min-height: 68px;
+      }
+
+      .dash-brand strong {
+        font-size: 15px;
+      }
+
+      .dash-brand small {
+        font-size: 9px;
+      }
+
+      .logout {
+        height: 38px;
+
+        padding: 0 12px;
+      }
+
       .stats {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+          1fr 1fr;
       }
 
       .stat:last-child {
-        grid-column: span 2;
+        grid-column:
+          span 2;
+      }
+
+      .analytics-header {
+        align-items: stretch;
+
+        flex-direction: column;
+      }
+
+      .analytics-actions {
+        width: 100%;
+      }
+
+      .refresh-stats {
+        width: 100%;
+      }
+
+      .request-platform-grid {
+        grid-template-columns: 1fr;
       }
 
       .platform-grid {
@@ -887,7 +1270,9 @@
       }
     }
 
+
     @media (max-width: 400px) {
+
       .stats {
         grid-template-columns: 1fr;
       }
@@ -895,30 +1280,48 @@
       .stat:last-child {
         grid-column: auto;
       }
+
+      .dash-title {
+        font-size: 34px;
+      }
+
+      .dash-sub {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- =========================
+
+  <!-- =========================================================
        LOGIN VIEW
-  ========================== -->
+  ========================================================= -->
 
   <section id="loginView">
 
     <div class="login-brand">
 
       <div class="logo-wrap">
-        <img src="/suwung-logo.png" alt="suwung.id">
+
+        <img
+          src="/suwung-logo.png"
+          alt="suwung.id"
+        >
+
       </div>
 
       <div class="brand-name">
         AIODL
-        <span>Admin Dashboard</span>
+
+        <span>
+          Admin Dashboard
+        </span>
       </div>
 
     </div>
+
 
     <div class="login-card">
 
@@ -926,14 +1329,17 @@
         🔐
       </div>
 
+
       <h1 class="login-title">
         Akses Admin
       </h1>
+
 
       <p class="login-description">
         Masukkan token admin untuk melanjutkan
         ke dashboard AIODL.
       </p>
+
 
       <form id="loginForm">
 
@@ -943,6 +1349,7 @@
             🔑
           </div>
 
+
           <input
             id="token"
             class="token-input"
@@ -951,6 +1358,7 @@
             placeholder="Masukkan AIODL Admin Token"
             required
           >
+
 
           <button
             id="showToken"
@@ -963,16 +1371,21 @@
 
         </div>
 
+
         <button
           id="loginButton"
           class="login-button"
           type="submit"
         >
           Masuk ke Dashboard
-          <span>→</span>
+
+          <span>
+            →
+          </span>
         </button>
 
       </form>
+
 
       <div class="security-line">
         🛡 Hanya untuk administrator
@@ -980,37 +1393,65 @@
 
     </div>
 
+
     <div class="login-footer">
-      <strong>🛡 AIODL Security System</strong>
+
+      <strong>
+        🛡 AIODL Security System
+      </strong>
+
       <br>
+
       © 2026 AIODL. All rights reserved.
+
     </div>
 
   </section>
 
 
-  <!-- =========================
-       DASHBOARD VIEW
-  ========================== -->
 
-  <section id="dashboardView" class="hidden">
+  <!-- =========================================================
+       DASHBOARD VIEW
+  ========================================================= -->
+
+  <section
+    id="dashboardView"
+    class="hidden"
+  >
 
     <header class="dash-header">
 
       <div class="dash-header-inner">
 
-        <a class="dash-brand" href="/">
+        <a
+          class="dash-brand"
+          href="/"
+        >
 
-          <img src="/suwung-logo.png" alt="suwung.id">
+          <img
+            src="/suwung-logo.png"
+            alt="suwung.id"
+          >
 
           <span>
-            <strong>AIODL Admin</strong>
-            <small>Platform Management</small>
+
+            <strong>
+              AIODL Admin
+            </strong>
+
+            <small>
+              Platform Management
+            </small>
+
           </span>
 
         </a>
 
-        <button class="logout" id="logout">
+
+        <button
+          class="logout"
+          id="logout"
+        >
           Logout
         </button>
 
@@ -1018,47 +1459,212 @@
 
     </header>
 
+
+
     <main class="dash-main">
 
       <div class="dash-eyebrow">
         SUWUNG.ID
       </div>
 
+
       <h1 class="dash-title">
         Platform Control
       </h1>
+
 
       <p class="dash-sub">
         Kelola status platform AIODL tanpa perlu redeploy.
       </p>
 
+
+
+      <!-- =====================================================
+           OVERVIEW STATS
+      ====================================================== -->
+
       <section class="stats">
 
         <div class="stat">
-          <div class="stat-label">Total Platform</div>
-          <div class="stat-value" id="totalStat">—</div>
+
+          <div class="stat-label">
+            Total Platform
+          </div>
+
+          <div
+            class="stat-value"
+            id="totalStat"
+          >
+            —
+          </div>
+
         </div>
 
-        <div class="stat">
-          <div class="stat-label">Online</div>
-          <div class="stat-value" id="onlineStat">—</div>
-        </div>
 
         <div class="stat">
-          <div class="stat-label">Maintenance</div>
-          <div class="stat-value" id="maintenanceStat">—</div>
+
+          <div class="stat-label">
+            Online
+          </div>
+
+          <div
+            class="stat-value"
+            id="onlineStat"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-label">
+            Maintenance
+          </div>
+
+          <div
+            class="stat-value"
+            id="maintenanceStat"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-label">
+            Total Request
+          </div>
+
+          <div
+            class="stat-value"
+            id="requestStat"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-label">
+            Berhasil
+          </div>
+
+          <div
+            class="stat-value"
+            id="successStat"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-label">
+            Gagal
+          </div>
+
+          <div
+            class="stat-value"
+            id="failedStat"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-label">
+            Success Rate
+          </div>
+
+          <div
+            class="stat-value"
+            id="successRateStat"
+          >
+            —
+          </div>
+
         </div>
 
       </section>
+
+
+
+      <!-- =====================================================
+           REQUEST ANALYTICS
+      ====================================================== -->
+
+      <section class="analytics">
+
+        <div class="analytics-header">
+
+          <div>
+
+            <h2 class="analytics-title">
+              Request Analytics
+            </h2>
+
+            <p class="analytics-subtitle">
+              Statistik penggunaan downloader berdasarkan platform.
+            </p>
+
+          </div>
+
+
+          <div class="analytics-actions">
+
+            <button
+              class="refresh-stats"
+              id="refreshStats"
+              type="button"
+            >
+              ↻ Refresh
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="request-platform-grid"
+          id="requestPlatformGrid"
+        ></div>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           PLATFORM CONTROL
+      ====================================================== -->
 
       <section
         class="platform-grid"
         id="grid"
       ></section>
 
+
       <p class="dash-hint">
-        Perubahan status disimpan ke Supabase dan berlaku tanpa
-        redeploy aplikasi.
+
+        Perubahan status disimpan ke Supabase dan berlaku
+        tanpa redeploy aplikasi.
+
+        <br>
+
+        Statistik request hanya mencatat platform dan hasil
+        request, bukan URL pengguna.
+
       </p>
 
     </main>
@@ -1066,31 +1672,81 @@
   </section>
 
 
+
+  <!-- =========================================================
+       SCRIPT
+  ========================================================= -->
+
   <script>
-    const loginView = document.getElementById("loginView");
-    const dashboardView = document.getElementById("dashboardView");
 
-    const loginForm = document.getElementById("loginForm");
-    const tokenInput = document.getElementById("token");
-    const loginButton = document.getElementById("loginButton");
-    const showToken = document.getElementById("showToken");
+    const loginView =
+      document.getElementById(
+        "loginView"
+      );
 
-    const grid = document.getElementById("grid");
+    const dashboardView =
+      document.getElementById(
+        "dashboardView"
+      );
 
-    const tokenKey = "aiodl_admin_token";
+
+    const loginForm =
+      document.getElementById(
+        "loginForm"
+      );
+
+    const tokenInput =
+      document.getElementById(
+        "token"
+      );
+
+    const loginButton =
+      document.getElementById(
+        "loginButton"
+      );
+
+    const showToken =
+      document.getElementById(
+        "showToken"
+      );
 
 
-    /* =========================
+    const grid =
+      document.getElementById(
+        "grid"
+      );
+
+    const requestPlatformGrid =
+      document.getElementById(
+        "requestPlatformGrid"
+      );
+
+
+    const tokenKey =
+      "aiodl_admin_token";
+
+
+
+    /* =========================================================
        HELPERS
-    ========================== */
+    ========================================================= */
 
     function getToken() {
-      return localStorage.getItem(tokenKey) || "";
+
+      return (
+        localStorage.getItem(
+          tokenKey
+        ) || ""
+      );
+
     }
 
 
     function escapeHtml(value) {
-      return String(value ?? "").replace(
+
+      return String(
+        value ?? ""
+      ).replace(
         /[&<>"']/g,
         char => ({
           "&": "&amp;",
@@ -1100,139 +1756,210 @@
           "'": "&#39;"
         }[char])
       );
+
     }
 
 
-    async function api(path, options = {}) {
+    async function api(
+      path,
+      options = {}
+    ) {
 
       options.headers = {
+
         ...(options.headers || {}),
-        "x-admin-token": getToken(),
-        "Content-Type": "application/json"
+
+        "x-admin-token":
+          getToken(),
+
+        "Content-Type":
+          "application/json"
+
       };
 
-      const response = await fetch(path, options);
 
-      const data = await response
-        .json()
-        .catch(() => ({}));
+      const response =
+        await fetch(
+          path,
+          options
+        );
+
+
+      const data =
+        await response
+          .json()
+          .catch(
+            () => ({})
+          );
+
 
       if (!response.ok) {
+
         throw new Error(
-          data.message || "Request gagal."
+          data.message ||
+          "Request gagal."
         );
+
       }
 
+
       return data;
+
     }
 
 
-    /* =========================
+
+    /* =========================================================
        TOKEN VISIBILITY
-    ========================== */
+    ========================================================= */
 
-    showToken.addEventListener("click", () => {
+    showToken.addEventListener(
+      "click",
+      () => {
 
-      const visible =
-        tokenInput.type === "text";
-
-      tokenInput.type =
-        visible ? "password" : "text";
-
-      showToken.textContent =
-        visible ? "◉" : "◉";
-
-    });
+        const visible =
+          tokenInput.type ===
+          "text";
 
 
-    /* =========================
-       LOGIN
-    ========================== */
+        tokenInput.type =
+          visible
+            ? "password"
+            : "text";
 
-    loginForm.addEventListener("submit", async event => {
-
-      event.preventDefault();
-
-      const token =
-        tokenInput.value.trim();
-
-      if (!token) {
-        Swal.fire({
-          icon: "warning",
-          title: "Token belum diisi",
-          text: "Masukkan AIODL Admin Token."
-        });
-
-        return;
       }
-
-      loginButton.disabled = true;
-      loginButton.innerHTML =
-        "Memverifikasi...";
+    );
 
 
-      try {
 
-        /*
-         * Simpan sementara.
-         * Endpoint existing tetap digunakan.
-         */
+    /* =========================================================
+       LOGIN
+    ========================================================= */
 
-        localStorage.setItem(
-          tokenKey,
-          token
-        );
+    loginForm.addEventListener(
+      "submit",
+      async event => {
 
-        const data =
-          await api("/api/admin/platforms");
+        event.preventDefault();
 
 
-        showDashboard();
+        const token =
+          tokenInput.value.trim();
 
-        render(data.platforms);
 
-        Swal.fire({
-          toast: true,
-          position: "top-end",
-          icon: "success",
-          title: "Login berhasil",
-          showConfirmButton: false,
-          timer: 1600
-        });
+        if (!token) {
 
-      } catch (error) {
+          Swal.fire({
 
-        localStorage.removeItem(
-          tokenKey
-        );
+            icon: "warning",
 
-        Swal.fire({
-          icon: "error",
-          title: "Akses ditolak",
-          text:
-            error.message ||
-            "Admin token tidak valid."
-        });
+            title:
+              "Token belum diisi",
 
-      } finally {
+            text:
+              "Masukkan AIODL Admin Token."
 
-        loginButton.disabled = false;
+          });
+
+          return;
+
+        }
+
+
+        loginButton.disabled =
+          true;
 
         loginButton.innerHTML =
-          'Masuk ke Dashboard <span>→</span>';
+          "Memverifikasi...";
+
+
+        try {
+
+          localStorage.setItem(
+            tokenKey,
+            token
+          );
+
+
+          const data =
+            await api(
+              "/api/admin/platforms"
+            );
+
+
+          showDashboard();
+
+
+          render(
+            data.platforms
+          );
+
+
+          await loadRequestStats();
+
+
+          Swal.fire({
+
+            toast: true,
+
+            position: "top-end",
+
+            icon: "success",
+
+            title:
+              "Login berhasil",
+
+            showConfirmButton:
+              false,
+
+            timer: 1600
+
+          });
+
+        } catch (error) {
+
+          localStorage.removeItem(
+            tokenKey
+          );
+
+
+          Swal.fire({
+
+            icon: "error",
+
+            title:
+              "Akses ditolak",
+
+            text:
+              error.message ||
+              "Admin token tidak valid."
+
+          });
+
+        } finally {
+
+          loginButton.disabled =
+            false;
+
+          loginButton.innerHTML =
+            'Masuk ke Dashboard <span>→</span>';
+
+        }
 
       }
+    );
 
-    });
 
 
-    /* =========================
-       SHOW DASHBOARD
-    ========================== */
+    /* =========================================================
+       SHOW / HIDE
+    ========================================================= */
 
     function showDashboard() {
 
-      loginView.classList.add("hidden");
+      loginView.classList.add(
+        "hidden"
+      );
 
       dashboardView.classList.remove(
         "hidden"
@@ -1256,19 +1983,25 @@
     }
 
 
-    /* =========================
+
+    /* =========================================================
        LOAD DASHBOARD
-    ========================== */
+    ========================================================= */
 
     async function loadDashboard() {
 
       const token =
         getToken();
 
+
       if (!token) {
+
         showLogin();
+
         return;
+
       }
+
 
       try {
 
@@ -1277,9 +2010,16 @@
             "/api/admin/platforms"
           );
 
+
         showDashboard();
 
-        render(data.platforms);
+
+        render(
+          data.platforms
+        );
+
+
+        await loadRequestStats();
 
       } catch (error) {
 
@@ -1294,183 +2034,540 @@
     }
 
 
-    /* =========================
-       RENDER
-    ========================== */
 
-    function render(platforms) {
+    /* =========================================================
+       RENDER PLATFORM CONTROL
+    ========================================================= */
+
+    function render(
+      platforms
+    ) {
 
       const total =
         platforms.length;
 
+
       const online =
         platforms.filter(
-          p => p.enabled && !p.maintenance
+          p =>
+            p.enabled &&
+            !p.maintenance
         ).length;
+
 
       const maintenance =
         platforms.filter(
-          p => p.maintenance
+          p =>
+            p.maintenance
         ).length;
 
 
       document.getElementById(
         "totalStat"
-      ).textContent = total;
+      ).textContent =
+        total;
+
 
       document.getElementById(
         "onlineStat"
-      ).textContent = online;
+      ).textContent =
+        online;
+
 
       document.getElementById(
         "maintenanceStat"
-      ).textContent = maintenance;
+      ).textContent =
+        maintenance;
+
 
 
       grid.innerHTML =
-        platforms.map(platform => {
+        platforms
+          .map(
+            platform => {
 
-          const statusClass =
-            platform.maintenance
-              ? "maint"
-              : platform.enabled
-                ? "online"
-                : "off";
-
-          const statusText =
-            platform.maintenance
-              ? "MAINTENANCE"
-              : platform.enabled
-                ? "ONLINE"
-                : "DISABLED";
+              const statusClass =
+                platform.maintenance
+                  ? "maint"
+                  : platform.enabled
+                    ? "online"
+                    : "off";
 
 
-          return `
-            <article
-              class="platform-card"
-              data-id="${escapeHtml(platform.id)}"
-            >
-
-              <div class="platform-top">
-
-                <div>
-
-                  <div class="platform-name">
-                    ${escapeHtml(platform.name)}
-                  </div>
-
-                  <div class="platform-id">
-                    ${escapeHtml(platform.id)}
-                  </div>
-
-                  <div class="status ${statusClass}">
-                    ${statusText}
-                  </div>
-
-                </div>
-
-              </div>
+              const statusText =
+                platform.maintenance
+                  ? "MAINTENANCE"
+                  : platform.enabled
+                    ? "ONLINE"
+                    : "DISABLED";
 
 
-              <div class="controls">
+              return `
 
-                <label class="switch-row">
+                <article
+                  class="platform-card"
+                  data-id="${escapeHtml(
+                    platform.id
+                  )}"
+                >
 
-                  <span>Platform Enabled</span>
-
-                  <input
-                    class="switch enabled"
-                    type="checkbox"
-                    ${platform.enabled ? "checked" : ""}
+                  <div
+                    class="platform-top"
                   >
 
-                </label>
+                    <div>
+
+                      <div
+                        class="platform-name"
+                      >
+                        ${escapeHtml(
+                          platform.name
+                        )}
+                      </div>
 
 
-                <label class="switch-row">
+                      <div
+                        class="platform-id"
+                      >
+                        ${escapeHtml(
+                          platform.id
+                        )}
+                      </div>
 
-                  <span>Maintenance Mode</span>
 
-                  <input
-                    class="switch maintenance"
-                    type="checkbox"
-                    ${platform.maintenance ? "checked" : ""}
+                      <div
+                        class="status ${statusClass}"
+                      >
+                        ${statusText}
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <div
+                    class="controls"
                   >
 
-                </label>
+                    <label
+                      class="switch-row"
+                    >
+
+                      <span>
+                        Platform Enabled
+                      </span>
 
 
-                <textarea
-                  class="message"
-                  placeholder="Pesan maintenance..."
-                >${escapeHtml(
-                  platform.maintenance_message || ""
-                )}</textarea>
+                      <input
+                        class="switch enabled"
+                        type="checkbox"
+                        ${
+                          platform.enabled
+                            ? "checked"
+                            : ""
+                        }
+                      >
+
+                    </label>
 
 
-                <button class="save">
-                  Simpan Perubahan
-                </button>
+                    <label
+                      class="switch-row"
+                    >
 
-              </div>
+                      <span>
+                        Maintenance Mode
+                      </span>
 
-            </article>
-          `;
 
-        }).join("");
+                      <input
+                        class="switch maintenance"
+                        type="checkbox"
+                        ${
+                          platform.maintenance
+                            ? "checked"
+                            : ""
+                        }
+                      >
+
+                    </label>
+
+
+                    <textarea
+                      class="message"
+                      placeholder="Pesan maintenance..."
+                    >${escapeHtml(
+                      platform
+                        .maintenance_message ||
+                      ""
+                    )}</textarea>
+
+
+                    <button
+                      class="save"
+                      type="button"
+                    >
+                      Simpan Perubahan
+                    </button>
+
+                  </div>
+
+                </article>
+
+              `;
+
+            }
+          )
+          .join("");
 
 
       grid
-        .querySelectorAll(".save")
-        .forEach(button => {
+        .querySelectorAll(
+          ".save"
+        )
+        .forEach(
+          button => {
 
-          button.addEventListener(
-            "click",
-            savePlatform
-          );
+            button.addEventListener(
+              "click",
+              savePlatform
+            );
 
-        });
+          }
+        );
 
     }
 
 
-    /* =========================
-       SAVE PLATFORM
-    ========================== */
 
-    async function savePlatform(event) {
+    /* =========================================================
+       REQUEST ANALYTICS
+    ========================================================= */
+
+    async function loadRequestStats() {
+
+      const button =
+        document.getElementById(
+          "refreshStats"
+        );
+
+
+      if (button) {
+
+        button.disabled =
+          true;
+
+        button.textContent =
+          "Memuat...";
+
+      }
+
+
+      try {
+
+        const data =
+          await api(
+            "/api/admin/stats"
+          );
+
+
+        const stats =
+          data.stats || {};
+
+
+        document.getElementById(
+          "requestStat"
+        ).textContent =
+          Number(
+            stats.totalRequests ||
+            0
+          ).toLocaleString(
+            "id-ID"
+          );
+
+
+        document.getElementById(
+          "successStat"
+        ).textContent =
+          Number(
+            stats.successRequests ||
+            0
+          ).toLocaleString(
+            "id-ID"
+          );
+
+
+        document.getElementById(
+          "failedStat"
+        ).textContent =
+          Number(
+            stats.failedRequests ||
+            0
+          ).toLocaleString(
+            "id-ID"
+          );
+
+
+        document.getElementById(
+          "successRateStat"
+        ).textContent =
+          `${Number(
+            stats.successRate ||
+            0
+          )}%`;
+
+
+        const platforms =
+          Array.isArray(
+            stats.platforms
+          )
+            ? stats.platforms
+            : [];
+
+
+        if (!platforms.length) {
+
+          requestPlatformGrid.innerHTML = `
+
+            <div
+              class="analytics-empty"
+            >
+              Belum ada request yang
+              tercatat.
+            </div>
+
+          `;
+
+          return;
+
+        }
+
+
+        const max =
+          Math.max(
+            ...platforms.map(
+              p =>
+                Number(
+                  p.total || 0
+                )
+            ),
+            1
+          );
+
+
+        requestPlatformGrid.innerHTML =
+          platforms
+            .map(
+              p => {
+
+                const total =
+                  Number(
+                    p.total || 0
+                  );
+
+
+                const success =
+                  Number(
+                    p.success || 0
+                  );
+
+
+                const failed =
+                  Number(
+                    p.failed || 0
+                  );
+
+
+                const successRate =
+                  Number(
+                    p.successRate || 0
+                  );
+
+
+                const percent =
+                  Math.min(
+                    100,
+                    Math.round(
+                      (total / max) *
+                      100
+                    )
+                  );
+
+
+                return `
+
+                  <article
+                    class="request-platform-card"
+                  >
+
+                    <div
+                      class="request-platform-top"
+                    >
+
+                      <div
+                        class="request-platform-name"
+                      >
+                        ${escapeHtml(
+                          p.platform
+                        )}
+                      </div>
+
+
+                      <div
+                        class="request-platform-count"
+                      >
+                        ${total.toLocaleString(
+                          "id-ID"
+                        )}
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="request-platform-meta"
+                    >
+
+                      <span>
+                        ✓
+                        ${success.toLocaleString(
+                          "id-ID"
+                        )}
+                        berhasil
+                      </span>
+
+
+                      <span>
+                        ✕
+                        ${failed.toLocaleString(
+                          "id-ID"
+                        )}
+                        gagal
+                      </span>
+
+                    </div>
+
+
+                    <div
+                      class="request-platform-meta"
+                    >
+
+                      <span>
+                        Success rate
+                      </span>
+
+
+                      <strong>
+                        ${successRate}%
+                      </strong>
+
+                    </div>
+
+
+                    <div
+                      class="request-bar"
+                    >
+
+                      <span
+                        style="
+                          width:${percent}%
+                        "
+                      ></span>
+
+                    </div>
+
+                  </article>
+
+                `;
+
+              }
+            )
+            .join("");
+
+      } catch (error) {
+
+        requestPlatformGrid.innerHTML = `
+
+          <div
+            class="analytics-empty"
+          >
+            Gagal memuat statistik:
+            ${escapeHtml(
+              error.message ||
+              "Unknown error"
+            )}
+          </div>
+
+        `;
+
+      } finally {
+
+        if (button) {
+
+          button.disabled =
+            false;
+
+          button.textContent =
+            "↻ Refresh";
+
+        }
+
+      }
+
+    }
+
+
+
+    /* =========================================================
+       SAVE PLATFORM
+    ========================================================= */
+
+    async function savePlatform(
+      event
+    ) {
 
       const button =
         event.currentTarget;
+
 
       const card =
         button.closest(
           ".platform-card"
         );
 
+
       const id =
         card.dataset.id;
 
 
       const enabled =
-        card.querySelector(
-          ".enabled"
-        ).checked;
+        card
+          .querySelector(
+            ".enabled"
+          )
+          .checked;
 
 
       const maintenance =
-        card.querySelector(
-          ".maintenance"
-        ).checked;
+        card
+          .querySelector(
+            ".maintenance"
+          )
+          .checked;
 
 
       const message =
-        card.querySelector(
-          ".message"
-        ).value;
+        card
+          .querySelector(
+            ".message"
+          )
+          .value;
 
 
-      button.disabled = true;
+      button.disabled =
+        true;
+
 
       button.textContent =
         "Menyimpan...";
@@ -1482,26 +2579,42 @@
           "/api/admin/platforms/" +
           encodeURIComponent(id),
           {
+
             method: "PUT",
 
-            body: JSON.stringify({
-              enabled,
-              maintenance,
-              maintenance_message:
-                message
-            })
+            body:
+              JSON.stringify({
+
+                enabled,
+
+                maintenance,
+
+                maintenance_message:
+                  message
+
+              })
+
           }
         );
 
 
         await Swal.fire({
+
           toast: true,
-          position: "top-end",
+
+          position:
+            "top-end",
+
           icon: "success",
+
           title:
             "Perubahan tersimpan",
-          showConfirmButton: false,
+
+          showConfirmButton:
+            false,
+
           timer: 1600
+
         });
 
 
@@ -1510,16 +2623,22 @@
       } catch (error) {
 
         Swal.fire({
+
           icon: "error",
-          title: "Gagal menyimpan",
+
+          title:
+            "Gagal menyimpan",
+
           text:
             error.message ||
             "Terjadi kesalahan."
+
         });
 
       } finally {
 
-        button.disabled = false;
+        button.disabled =
+          false;
 
         button.textContent =
           "Simpan Perubahan";
@@ -1529,49 +2648,88 @@
     }
 
 
-    /* =========================
-       LOGOUT
-    ========================== */
+
+    /* =========================================================
+       REFRESH STATS
+    ========================================================= */
 
     document
-      .getElementById("logout")
-      .addEventListener("click", async () => {
-
-        const result =
-          await Swal.fire({
-            icon: "question",
-            title: "Logout?",
-            text:
-              "Token admin akan dihapus dari perangkat ini.",
-            showCancelButton: true,
-            confirmButtonText:
-              "Logout",
-            cancelButtonText:
-              "Batal",
-            confirmButtonColor:
-              "#795cff"
-          });
+      .getElementById(
+        "refreshStats"
+      )
+      .addEventListener(
+        "click",
+        loadRequestStats
+      );
 
 
-        if (!result.isConfirmed) {
-          return;
+
+    /* =========================================================
+       LOGOUT
+    ========================================================= */
+
+    document
+      .getElementById(
+        "logout"
+      )
+      .addEventListener(
+        "click",
+        async () => {
+
+          const result =
+            await Swal.fire({
+
+              icon:
+                "question",
+
+              title:
+                "Logout?",
+
+              text:
+                "Token admin akan dihapus dari perangkat ini.",
+
+              showCancelButton:
+                true,
+
+              confirmButtonText:
+                "Logout",
+
+              cancelButtonText:
+                "Batal",
+
+              confirmButtonColor:
+                "#795cff"
+
+            });
+
+
+          if (
+            !result.isConfirmed
+          ) {
+
+            return;
+
+          }
+
+
+          localStorage.removeItem(
+            tokenKey
+          );
+
+
+          showLogin();
+
         }
+      );
 
 
-        localStorage.removeItem(
-          tokenKey
-        );
 
-        showLogin();
-
-      });
-
-
-    /* =========================
+    /* =========================================================
        START
-    ========================== */
+    ========================================================= */
 
     loadDashboard();
+
   </script>
 
 </body>
