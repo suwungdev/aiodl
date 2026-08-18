@@ -8,108 +8,153 @@ export function setInstagramSource(source) {
   _igSource = source;
 }
 
-function getMediaType(item, sourceUrl) {
+function isInstagramVideoUrl(url) {
+  const value = String(url || "").toLowerCase();
+
+  return (
+    value.includes("/reel/") ||
+    value.includes("/reels/") ||
+    value.includes("/tv/")
+  );
+}
+
+function detectFromObject(item) {
   const values = [
     item?.type,
     item?.mediaType,
-    item?.media_type,
     item?.mime,
     item?.mimeType,
-    item?.mime_type,
     item?.format,
   ];
 
   for (const value of values) {
     if (!value) continue;
 
-    const v = String(value).toLowerCase();
+    const type = String(value).toLowerCase();
 
     if (
-      v.includes("video") ||
-      v.includes("mp4")
+      type.includes("video") ||
+      type.includes("mp4")
     ) {
       return "VIDEO";
     }
 
     if (
-      v.includes("image") ||
-      v.includes("photo") ||
-      v.includes("jpg") ||
-      v.includes("jpeg") ||
-      v.includes("png")
+      type.includes("image") ||
+      type.includes("photo") ||
+      type.includes("jpg") ||
+      type.includes("jpeg") ||
+      type.includes("png")
     ) {
       return "IMAGE";
     }
   }
 
-  const mediaUrl = String(item?.url || "").toLowerCase();
+  return null;
+}
+
+async function detectFromContentType(url) {
+  try {
+    const controller = new AbortController();
+
+    const timeout = setTimeout(
+      () => controller.abort(),
+      5000,
+    );
+
+    const response = await fetch(url, {
+      method: "HEAD",
+      redirect: "follow",
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
+
+    const contentType =
+      response.headers.get("content-type") || "";
+
+    if (contentType.startsWith("video/")) {
+      return "VIDEO";
+    }
+
+    if (contentType.startsWith("image/")) {
+      return "IMAGE";
+    }
+  } catch (error) {
+    // Ignore HEAD errors.
+  }
+
+  return null;
+}
+
+async function detectMediaType(
+  item,
+  mediaUrl,
+  sourceUrl,
+) {
+  // 1. Kalau module memberikan type, prioritaskan.
+  const objectType = detectFromObject(item);
+
+  if (objectType) {
+    return objectType;
+  }
+
+  // 2. Reel / Reels / IGTV pasti video.
+  if (isInstagramVideoUrl(sourceUrl)) {
+    return "VIDEO";
+  }
+
+  // 3. Cek ekstensi URL.
+  const media = String(mediaUrl || "").toLowerCase();
 
   if (
-    /\.(mp4|mov|m4v|webm)(?:[?#]|$)/i.test(mediaUrl) ||
-    mediaUrl.includes(".mp4")
+    /\.(mp4|mov|m4v|webm)(?:[?#]|$)/i.test(media) ||
+    media.includes(".mp4")
   ) {
     return "VIDEO";
   }
 
-  // Reel/Reels/TV URL dari Instagram = video.
-  const source = String(sourceUrl).toLowerCase();
-
   if (
-    source.includes("/reel/") ||
-    source.includes("/reels/") ||
-    source.includes("/tv/")
+    /\.(jpg|jpeg|png|webp|gif)(?:[?#]|$)/i.test(media)
   ) {
-    return "VIDEO";
+    return "IMAGE";
   }
 
+  // 4. Kalau masih ambigu, cek Content-Type CDN.
+  const contentType =
+    await detectFromContentType(mediaUrl);
+
+  if (contentType) {
+    return contentType;
+  }
+
+  // 5. Default terakhir.
   return "IMAGE";
 }
 
-function getThumbnail(item) {
-  return (
-    item?.thumbnail ||
-    item?.thumb ||
-    item?.cover ||
-    item?.preview ||
-    null
-  );
-}
-
-export async function scrapeInstagram(
-  url,
-  source = "btch",
-) {
+export async function scrapeInstagram(url, source) {
   try {
-    const cleanUrl = getCleanUrl(url);
+    const cleanUrl = getCleanUrl(url).split("?")[0];
 
     console.log(
-      `[Instagram] Using btch-downloader: ${cleanUrl}`,
+      `[Instagram] btch-downloader: ${cleanUrl}`,
     );
 
     const result = await igdl(cleanUrl);
 
     console.log(
-      "[Instagram] btch status:",
+      "[Instagram] Result status:",
       result?.status,
-    );
-
-    console.log(
-      "[Instagram] btch items:",
+      "items:",
       Array.isArray(result?.result)
         ? result.result.length
         : 0,
     );
 
-    if (!result) {
+    if (!result || result.status !== true) {
       throw new Error(
-        "Instagram downloader returned no response.",
-      );
-    }
-
-    if (result.status === false) {
-      throw new Error(
-        result.message ||
-          result.error ||
+        result?.message ||
+          result?.error ||
           "Instagram downloader failed.",
       );
     }
@@ -119,7 +164,7 @@ export async function scrapeInstagram(
       result.result.length === 0
     ) {
       throw new Error(
-        "No downloadable media was found.",
+        "No downloadable Instagram media found.",
       );
     }
 
@@ -131,9 +176,7 @@ export async function scrapeInstagram(
 
       const mediaUrl = String(item.url);
 
-      if (
-        !/^https?:\/\//i.test(mediaUrl)
-      ) {
+      if (!/^https?:\/\//i.test(mediaUrl)) {
         continue;
       }
 
@@ -143,10 +186,14 @@ export async function scrapeInstagram(
 
       seen.add(mediaUrl);
 
-      const thumbnail = getThumbnail(item);
+      const thumbnail =
+        item.thumbnail ||
+        item.thumb ||
+        null;
 
-      const type = getMediaType(
+      const type = await detectMediaType(
         item,
+        mediaUrl,
         cleanUrl,
       );
 
@@ -163,13 +210,11 @@ export async function scrapeInstagram(
 
     if (downloads.length === 0) {
       throw new Error(
-        "Instagram returned media data, but no valid media URL was found.",
+        "Instagram returned media, but no valid download URL was found.",
       );
     }
 
-    console.log(
-      `[Instagram] Found ${downloads.length} media item(s).`,
-    );
+    _igSource = null;
 
     return createScraperResult(true, {
       title:
@@ -187,9 +232,11 @@ export async function scrapeInstagram(
     });
   } catch (error) {
     console.error(
-      "[Instagram] btch error:",
+      "[Instagram] Error:",
       error,
     );
+
+    _igSource = null;
 
     return createScraperResult(
       false,
