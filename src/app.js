@@ -6,6 +6,7 @@ import rateLimit from 'express-rate-limit';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectPlatform, listPlatforms, scrape } from './platforms.js';
+import { getPlatformConfigs, getPlatformConfig, savePlatformConfig, isAdminConfigured } from './services/platformConfig.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -28,7 +29,38 @@ const scrapeLimiter = rateLimit({
 });
 
 app.get('/api/health', (_req, res) => res.json({ status: true, service: 'AIODL', uptime: Math.round(process.uptime()) }));
-app.get('/api/platforms', (_req, res) => res.json({ status: true, platforms: listPlatforms() }));
+app.get('/api/platforms', async (_req, res) => {
+  const configs = await getPlatformConfigs();
+  res.json({ status: true, platforms: listPlatforms().map(p => ({ ...p, ...(configs[p.id] || {}) })) });
+});
+
+const requireAdmin = (req, res, next) => {
+  const expected = process.env.AIODL_ADMIN_TOKEN;
+  const supplied = req.get('x-admin-token') || '';
+  if (!expected) return res.status(503).json({ status: false, message: 'Admin is not configured. Set AIODL_ADMIN_TOKEN in Vercel.' });
+  if (supplied !== expected) return res.status(401).json({ status: false, message: 'Invalid admin token.' });
+  next();
+};
+
+app.get('/api/admin/platforms', requireAdmin, async (_req, res) => {
+  const configs = await getPlatformConfigs();
+  res.json({ status: true, configured: isAdminConfigured(), platforms: listPlatforms().map(p => ({ ...p, ...(configs[p.id] || {}) })) });
+});
+
+app.put('/api/admin/platforms/:id', requireAdmin, async (req, res) => {
+  try {
+    const id = req.params.id;
+    const patch = {
+      enabled: req.body?.enabled,
+      maintenance: req.body?.maintenance,
+      maintenance_message: req.body?.maintenance_message,
+    };
+    const saved = await savePlatformConfig(id, patch);
+    res.json({ status: true, platform: saved });
+  } catch (err) {
+    res.status(400).json({ status: false, message: err?.message || 'Unable to save platform config.' });
+  }
+});
 
 app.post('/api/scrape', scrapeLimiter, async (req, res) => {
   const input = typeof req.body?.url === 'string' ? req.body.url.trim() : '';
@@ -39,6 +71,16 @@ app.post('/api/scrape', scrapeLimiter, async (req, res) => {
 
   const platform = detectPlatform(url);
   if (!platform) return res.status(400).json({ status: false, message: 'This platform is not supported yet.' });
+
+  const config = await getPlatformConfig(platform.id);
+  if (config?.maintenance || config?.enabled === false) {
+    return res.status(503).json({
+      status: false,
+      code: 'PLATFORM_MAINTENANCE',
+      message: config.maintenance_message || `${platform.name} sedang dalam maintenance.`,
+      platform: platform.id,
+    });
+  }
 
   const started = Date.now();
   try {

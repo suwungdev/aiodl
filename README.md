@@ -32,3 +32,16 @@ See `.env.example`.
 ## Notes
 
 AIODL returns direct media URLs from the existing scraper layer instead of proxying the media through the server. This keeps server bandwidth and memory usage low.
+
+
+## Platform Control Dashboard
+
+The existing scraper logic is kept intact. Platform enable/maintenance state is an additional server-side layer. Configure these Vercel environment variables:
+
+- `AIODL_ADMIN_TOKEN` — secret used by `/admin/`.
+- `SUPABASE_URL` — Supabase project URL.
+- `SUPABASE_SERVICE_ROLE_KEY` — server-only Supabase service-role key. Never expose it to browser code.
+
+Run `supabase-platform-settings.sql` once in Supabase SQL Editor. Then open `/admin/`, enter the admin token, and toggle platforms without redeploying.
+
+Bilibili defaults to maintenance mode until changed in the dashboard. Other platforms default to enabled.

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://aiodl.suwung.id/</loc><lastmod>2026-08-18</lastmod></url>
-  <url><loc>https://aiodl.suwung.id/cara-download.html</loc><lastmod>2026-08-18</lastmod></url>
-  <url><loc>https://aiodl.suwung.id/faq.html</loc><lastmod>2026-08-18</lastmod></url>
-  <url><loc>https://aiodl.suwung.id/tentang.html</loc><lastmod>2026-08-18</lastmod></url>
-  <url><loc>https://aiodl.suwung.id/kebijakan-privasi.html</loc><lastmod>2026-08-18</lastmod></url>
-  <url><loc>https://aiodl.suwung.id/syarat-penggunaan.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url>
+    <loc>https://aiodl.suwung.id/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
