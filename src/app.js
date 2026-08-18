@@ -65,6 +65,3 @@ app.get('/{*splat}', (_req, res) => res.sendFile(path.join(publicDir, 'index.htm
 
 export { app };
 
-if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => console.log(`AIODL listening on :${port}`));
-}
