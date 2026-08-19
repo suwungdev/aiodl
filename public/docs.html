@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dokumentasi resmi AIODL API dari suwung.id.">
+<meta name="robots" content="index,follow">
+<title>AIODL API Docs — suwung.id</title>
+<style>
+:root{--bg:#080b12;--card:#101622;--line:#202938;--text:#f4f7ff;--muted:#8e99ad;--blue:#67a9ff;--purple:#916dff;--green:#55d69a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#22204b,transparent 40%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.7}a{color:inherit;text-decoration:none}code,pre{font-family:monospace}
+header{position:sticky;top:0;z-index:10;background:#080b12dd;border-bottom:1px solid var(--line);backdrop-filter:blur(15px)}
+.nav{max-width:1100px;margin:auto;min-height:68px;padding:0 16px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em}.links{display:flex;gap:4px}.links a{padding:8px 10px;border-radius:9px;color:var(--muted);font-size:13px;font-weight:700}.links a:hover,.links .active{background:#ffffff0b;color:#fff}.menu{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:10px;padding:9px 12px;font-size:20px}
+main{max-width:1100px;margin:auto;padding:55px 16px 80px}.hero{max-width:760px;margin-bottom:45px}.badge{color:#a995ff;font-size:10px;font-weight:900;letter-spacing:.15em}.hero h1{font-size:clamp(38px,7vw,64px);line-height:1;margin:10px 0;letter-spacing:-.06em}.hero h1 span{background:linear-gradient(90deg,var(--blue),var(--purple));color:transparent;background-clip:text}.hero p,.section p,li{color:var(--muted);font-size:14px}
+.layout{display:grid;grid-template-columns:190px 1fr;gap:38px}.side{position:sticky;top:90px;height:max-content}.side a{display:block;padding:6px 8px;color:var(--muted);font-size:12px}.side a:hover{color:#fff}.section{scroll-margin-top:90px;margin-bottom:55px}.section h2{font-size:27px;letter-spacing:-.04em;margin:0 0 10px}.section h3{font-size:17px;margin:25px 0 8px}
+.card{border:1px solid var(--line);background:#ffffff04;border-radius:14px;padding:16px;margin:15px 0}.endpoint{display:flex;gap:10px;align-items:center}.method{background:#55d69a18;color:var(--green);padding:5px 9px;border-radius:7px;font:800 11px monospace}.path{font:13px monospace;overflow-wrap:anywhere}
+.code{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#060910;margin:15px 0}.codebar{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10px;font-weight:800}.copy{border:1px solid var(--line);background:#ffffff08;color:#c8d0df;border-radius:7px;padding:5px 9px;cursor:pointer}.code pre{margin:0;padding:15px;overflow:auto;color:#dce5f7;font-size:11px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.platform{border:1px solid var(--line);border-radius:13px;padding:14px;background:#ffffff03}.platform b{font-size:14px}.url{display:block;color:#9eabc0;background:#060910;border-radius:8px;padding:7px 9px;margin-top:7px;font:10px monospace;overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:12px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:#9ca8bb}td{color:var(--muted)}
+.note{border-left:3px solid var(--blue);background:#67a9ff08;padding:12px 15px;border-radius:8px;color:var(--muted);font-size:12px}.note strong{color:#fff}
+footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:var(--muted);font-size:11px}
+@media(max-width:760px){.links{display:none;position:absolute;top:62px;left:12px;right:12px;flex-direction:column;background:#0d121df8;border:1px solid var(--line);border-radius:14px;padding:8px}.links.open{display:flex}.links a{padding:11px 13px}.menu{display:block}.layout{display:block}.side{display:none}.grid{grid-template-columns:1fr}main{padding-top:38px}.hero h1{font-size:42px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="brand" href="/">AIODL<small>by suwung.id</small></a>
+<nav class="links" id="links">
+<a href="/">Downloader</a><a href="/cara-download.html">Cara Download</a><a href="/faq.html">FAQ</a><a href="/tentang.html">Tentang</a><a href="/kebijakan-privasi.html">Privasi</a><a href="/donasi.html">Donasi</a><a class="active" href="/docs.html">API Docs</a>
+</nav><button class="menu" id="menu" aria-label="Menu">☰</button>
+</div></header>
+<main>
+<section class="hero"><div class="badge">PUBLIC API</div><h1>AIODL <span>API Docs</span></h1><p>API sederhana untuk memproses URL media dari berbagai platform yang didukung AIODL. Cocok untuk website, bot, automation, dan aplikasi sendiri.</p></section>
+<div class="layout"><aside class="side"><a href="#intro">Introduction</a><a href="#endpoint">Endpoint</a><a href="#request">Request</a><a href="#response">Response</a><a href="#urls">Supported URLs</a><a href="#errors">Errors</a><a href="#examples">Examples</a></aside><div>
+<section class="section" id="intro"><h2>Introduction</h2><p>AIODL menyediakan endpoint HTTP yang menerima URL publik dan mengembalikan informasi media yang berhasil ditemukan.</p><div class="note"><strong>Public API:</strong> endpoint downloader dapat dipanggil tanpa API key. Gunakan secara wajar dan hormati rate limit.</div></section>
+<section class="section" id="endpoint"><h2>API Endpoint</h2><div class="endpoint"><span class="method">POST</span><span class="path">https://aiodl.suwung.id/api/scrape</span></div><p>Gunakan <code>Content-Type: application/json</code>.</p></section>
+<section class="section" id="request"><h2>Request</h2><p>Body request membutuhkan property <code>url</code>.</p><div class="code"><div class="codebar">JSON<button class="copy" data-copy='{"url":"https://www.tiktok.com/..."}'>Copy</button></div><pre>{
+  "url": "https://www.tiktok.com/..."
+}</pre></div></section>
+<section class="section" id="response"><h2>Response</h2><p>Contoh response ketika media berhasil ditemukan:</p><div class="code"><div class="codebar">JSON<button class="copy" data-copy='{"status":true,"platform":{"id":"tiktok","name":"TikTok"},"result":{"title":"Example","thumbnail":"https://...","downloads":[{"id":1,"type":"VIDEO","quality":"HD","url":"https://..."}]}}'>Copy</button></div><pre>{
+  "status": true,
+  "platform": {"id": "tiktok", "name": "TikTok"},
+  "result": {
+    "title": "Example",
+    "thumbnail": "https://...",
+    "downloads": [
+      {"id": 1, "type": "VIDEO", "quality": "HD", "url": "https://..."}
+    ]
+  }
+}</pre></div></section>
+<section class="section" id="urls"><h2>Supported URLs</h2><p>Beberapa contoh URL yang dapat diproses. URL harus publik dan keberhasilan tetap bergantung pada kondisi platform serta scraper.</p>
+<div class="grid">
+<div class="platform"><b>YouTube</b><span class="url">youtube.com/watch?v=VIDEO_ID</span><span class="url">youtu.be/VIDEO_ID</span><span class="url">youtube.com/shorts/VIDEO_ID</span></div>
+<div class="platform"><b>TikTok</b><span class="url">tiktok.com/@user/video/VIDEO_ID</span><span class="url">vm.tiktok.com/XXXXXXXX/</span></div>
+<div class="platform"><b>Instagram</b><span class="url">instagram.com/p/XXXXXXXX/</span><span class="url">instagram.com/reel/XXXXXXXX/</span><span class="url">instagram.com/reels/XXXXXXXX/</span></div>
+<div class="platform"><b>Facebook</b><span class="url">facebook.com/watch/?v=VIDEO_ID</span><span class="url">fb.watch/XXXXXXXX/</span></div>
+<div class="platform"><b>X / Twitter</b><span class="url">x.com/user/status/STATUS_ID</span><span class="url">twitter.com/user/status/STATUS_ID</span></div>
+<div class="platform"><b>Pinterest</b><span class="url">pinterest.com/pin/PIN_ID/</span><span class="url">pin.it/XXXXXXXX</span></div>
+<div class="platform"><b>Spotify</b><span class="url">open.spotify.com/track/TRACK_ID</span><span class="url">open.spotify.com/album/ALBUM_ID</span></div>
+<div class="platform"><b>Apple Music</b><span class="url">music.apple.com/.../album/...</span></div>
+<div class="platform"><b>Pixiv</b><span class="url">pixiv.net/artworks/ARTWORK_ID</span></div>
+<div class="platform"><b>RedNote</b><span class="url">xiaohongshu.com/...</span><span class="url">xhslink.com/XXXXXXXX</span></div>
+<div class="platform"><b>Bilibili</b><span class="url">bilibili.com/video/BVXXXXXXXX/</span><span class="url">b23.tv/XXXXXXXX</span></div>
+<div class="platform"><b>Douyin</b><span class="url">douyin.com/video/VIDEO_ID</span></div>
+<div class="platform"><b>Threads</b><span class="url">threads.net/@user/post/POST_ID</span></div>
+<div class="platform"><b>Bandcamp</b><span class="url">artist.bandcamp.com/track/track-name</span></div>
+</div><div class="note" style="margin-top:16px"><strong>Important:</strong> konten private, restricted, membutuhkan login, atau media yang sedang tidak tersedia dapat gagal diproses.</div></section>
+<section class="section" id="errors"><h2>Error Codes</h2><table><tr><th>Status</th><th>Arti</th><th>Keterangan</th></tr><tr><td>200</td><td>Success</td><td>Media berhasil ditemukan.</td></tr><tr><td>400</td><td>Bad Request</td><td>URL tidak valid atau tidak didukung.</td></tr><tr><td>429</td><td>Rate Limited</td><td>Terlalu banyak request.</td></tr><tr><td>502</td><td>Scraper Error</td><td>Media gagal diproses.</td></tr><tr><td>503</td><td>Maintenance</td><td>Platform sedang dinonaktifkan.</td></tr></table></section>
+<section class="section" id="examples"><h2>Usage Examples</h2>
+<h3>JavaScript</h3><div class="code"><div class="codebar">JAVASCRIPT<button class="copy" data-copy='const res = await fetch("https://aiodl.suwung.id/api/scrape",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url:"https://www.tiktok.com/..."})}); console.log(await res.json());'>Copy</button></div><pre>const res = await fetch(
+  "https://aiodl.suwung.id/api/scrape",
+  {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({url: "https://www.tiktok.com/..."})
+  }
+);
+console.log(await res.json());</pre></div>
+<h3>cURL</h3><div class="code"><div class="codebar">CURL<button class="copy" data-copy='curl -X POST "https://aiodl.suwung.id/api/scrape" -H "Content-Type: application/json" -d "{"url":"https://www.tiktok.com/..."}"'>Copy</button></div><pre>curl -X POST "https://aiodl.suwung.id/api/scrape" -H "Content-Type: application/json" -d '{"url":"https://www.tiktok.com/..."}'</pre></div>
+<h3>cURL</h3><div class="code"><div class="codebar">CURL<button class="copy" data-copy="curl -X POST &quot;https://aiodl.suwung.id/api/scrape&quot; -H &quot;Content-Type: application/json&quot; -d '{&quot;url&quot;:&quot;https://www.tiktok.com/...&quot;}'">Copy</button></div><pre>curl -X POST "https://aiodl.suwung.id/api/scrape" -H "Content-Type: application/json" -d '{"url":"https://www.tiktok.com/..."}'</pre></div>
+<h3>PHP</h3><div class="code"><div class="codebar">PHP<button class="copy" data-copy='$ch = curl_init("https://aiodl.suwung.id/api/scrape");
+curl_setopt_array($ch,[CURLOPT_POST=>true,CURLOPT_RETURNTRANSFER=>true,CURLOPT_HTTPHEADER=>["Content-Type: application/json"],CURLOPT_POSTFIELDS=>json_encode(["url"=>"https://www.tiktok.com/..."])]);
+echo curl_exec($ch);curl_close($ch);'>Copy</button></div><pre>$ch = curl_init("https://aiodl.suwung.id/api/scrape");
+curl_setopt_array($ch, [
+  CURLOPT_POST =&gt; true,
+  CURLOPT_RETURNTRANSFER =&gt; true,
+  CURLOPT_HTTPHEADER =&gt; ["Content-Type: application/json"],
+  CURLOPT_POSTFIELDS =&gt; json_encode(["url" =&gt; "https://www.tiktok.com/..."])
+]);
+echo curl_exec($ch);
+curl_close($ch);</pre></div>
+<h3>Node.js</h3><div class="code"><div class="codebar">NODE.JS<button class="copy" data-copy='const res = await fetch("https://aiodl.suwung.id/api/scrape",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url:"https://www.youtube.com/watch?v=VIDEO_ID"})}); console.log(await res.json());'>Copy</button></div><pre>const res = await fetch(
+  "https://aiodl.suwung.id/api/scrape",
+  {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({url: "https://www.youtube.com/watch?v=VIDEO_ID"})
+  }
+);
+console.log(await res.json());</pre></div>
+<h3>Go</h3><div class="code"><div class="codebar">GO<button class="copy" data-copy='body := []byte(`{"url":"https://www.tiktok.com/..."}`)
+req, _ := http.NewRequest("POST","https://aiodl.suwung.id/api/scrape",bytes.NewBuffer(body))
+req.Header.Set("Content-Type","application/json")
+res, _ := http.DefaultClient.Do(req)
+defer res.Body.Close()
+fmt.Println(res.Status)'>Copy</button></div><pre>body := []byte(`{"url":"https://www.tiktok.com/..."}`)
+req, _ := http.NewRequest("POST","https://aiodl.suwung.id/api/scrape",bytes.NewBuffer(body))
+req.Header.Set("Content-Type","application/json")
+res, _ := http.DefaultClient.Do(req)
+defer res.Body.Close()
+fmt.Println(res.Status)</pre></div>
+</section>
+</div></div>
+</main>
+<footer><strong>AIODL</strong> by suwung.id · API Documentation · © 2026</footer>
+<script>
+const menu=document.getElementById("menu"),links=document.getElementById("links");
+menu.onclick=()=>links.classList.toggle("open");
+links.querySelectorAll("a").forEach(a=>a.onclick=()=>links.classList.remove("open"));
+document.querySelectorAll(".copy").forEach(btn=>btn.onclick=async()=>{
+try{await navigator.clipboard.writeText(btn.dataset.copy)}catch{const t=document.createElement("textarea");t.value=btn.dataset.copy;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}
+const old=btn.textContent;btn.textContent="Copied!";setTimeout(()=>btn.textContent=old,1200)
+});
+</script>
+</body>
+</html>
