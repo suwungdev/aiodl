@@ -518,6 +518,33 @@ app.post(
 
 
 /* =========================
+   SYSTEM FILES
+========================= */
+
+app.get("/robots.txt", (_req, res) => {
+  res
+    .type("text/plain")
+    .send(
+`User-agent: *
+Allow: /
+
+Sitemap: https://aiodl.suwung.id/sitemap.xml`
+    );
+});
+
+/* =========================
+   API GET PROTECTION
+========================= */
+
+app.get("/api/scrape", (_req, res) => {
+  res.status(405).json({
+    status: false,
+    message: "Method GET not allowed. Use POST /api/scrape.",
+  });
+});
+
+
+/* =========================
    STATIC
 ========================= */
 
